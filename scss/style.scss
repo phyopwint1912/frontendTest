@@ -1,0 +1,91 @@
+@import "variables.scss";
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+@mixin background($imgpath, $position, $repeat, $size) {
+  background: {
+    image: url($imgpath), linear-gradient(to top left, $primary, $body);
+    position: $position;
+    repeat: $repeat;
+    size: $size;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  color: $white;
+  height: 100vh;
+  widows: 100vw;
+  @include background("../img/bg.png", center, no-repeat, cover);
+}
+
+p {
+  line-height: 1.75;
+}
+
+span {
+  color: $white;
+  font-size: x-small;
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  color: $white;
+  font-size: x-small;
+  font-family: "Open Sans", sans-serif;
+  &:hover {
+    color: darken($primary, 10%);
+  }
+}
+
+.title {
+  font-family: "Noto Serif", serif;
+  margin-bottom: 10%;
+}
+
+.btn:hover {
+  color: $white;
+  text-decoration: none;
+}
+
+.form-control {
+  color: $white;
+  background-color: transparent;
+  border-radius: 5em;
+  line-height: 2;
+  &:focus {
+    background-color: transparent;
+  }
+}
+
+.form-group {
+  font-family: "Titillium Web", sans-serif;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-control-placeholder {
+  position: absolute;
+  top: 0;
+  font-size: small;
+  padding: 10px 0 0 15px;
+  transition: all 200ms;
+  opacity: 0.5;
+}
+
+.form-control:focus + .form-control-placeholder,
+.form-control:valid + .form-control-placeholder {
+  font-size: 75%;
+  transform: translate3d(0, -100%, 0);
+  opacity: 1;
+}
+
+.btn-block {
+  border: 1px solid $primary;
+  width: 100%;
+  border-radius: 5em;
+  background: $primary;
+  color: $white;
+  font-size: small;
+  line-height: 2;
+}
